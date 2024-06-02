@@ -1,0 +1,15 @@
+baseURL: https://yngvest.github.io/blog
+languageCode: en-us
+title: Igor's Tech Corner
+theme: ["PaperMod"]
+
+params:
+  homeInfoParams:
+    Title: Hi there 👋
+    Content: I am Igor, a guy who's passionate about IT and here I am sharing the passion with you! 
+
+  socialIcons:
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/igor-shtukarev/"
+  
+  ShowReadingTime: true
