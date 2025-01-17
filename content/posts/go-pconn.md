@@ -209,7 +209,7 @@ An early close always results in the `earlyCloseFn` being called without invokin
 
 Thus, if the response body is not read to completion by the caller the connection, can't be reused and will be terminated. You can test this yourself by debugging an HTTP client step by step or by checking the `netcat` output.
 
-The last thing to mention is how to properly drain the response body. No one knows it better than the `net/http` package itself, so let's take a look at [how it's done by http.Client](https://github.com/golang/go/blob/go1.23.4/src/net/http/client.go#L706)while handling redirects. Yes, you got it right - the package does it for the intermediate responses, but not for the last.
+The last thing to mention is how to properly drain the response body. No one knows it better than the `net/http` package itself, so let's take a look at [how it's done by http.Client](https://github.com/golang/go/blob/go1.23.4/src/net/http/client.go#L706) while handling redirects. Yes, the package does it for the intermediate responses, but not for the last.
 ```go
 func (c *Client) do(req *Request) (retres *Response, reterr error) {
 	...
