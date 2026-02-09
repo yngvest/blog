@@ -25,6 +25,15 @@
   margin-bottom: 16px;
 }
 
+.first-entry {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 160px;
+    margin: var(--gap) 0 calc(var(--gap) * 2) 0;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .content-type-badge,
