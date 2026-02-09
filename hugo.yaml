@@ -6,7 +6,7 @@ theme: ["PaperMod"]
 params:
   homeInfoParams:
     Title: Hi there 👋
-    Content: I am Igor and I am still figuring out what to write here 
+    Content: I am Igor and I write here about tech stuff and what I learn along the way.
 
   socialIcons:
     - name: "linkedin"
@@ -20,10 +20,10 @@ params:
 menu:
   main:
     - identifier: posts
-      name: Blog
+      name: 💡 Blog
       url: /posts/
       weight: 10
     - identifier: log
-      name: Log
+      name: 📝 Log
       url: /log/
       weight: 20
