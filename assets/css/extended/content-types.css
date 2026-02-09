@@ -1,36 +1,3 @@
-/* Content Type Visual Indicators */
-
-/* Badge styling */
-.content-type-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 12px;
-  border-radius: 16px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin-bottom: 8px;
-  margin-right: 8px;
-}
-
-.content-type-badge:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Specific badge colors */
-.log-badge {
-  background: linear-gradient(135deg, #ff6b6b, #ff8787);
-}
-
-.post-badge {
-  background: linear-gradient(135deg, #4ecdc4, #44a39f);
-}
-
 /* Log entry specific styling */
 .log-entry {
   position: relative;
@@ -39,17 +6,6 @@
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
-}
-
-.log-entry::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: linear-gradient(to bottom, #ff6b6b, #ff8787);
-  border-radius: 2px 0 0 2px;
 }
 
 /* Post entry styling */

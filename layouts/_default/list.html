@@ -57,7 +57,7 @@
 {{- $class := "post-entry" }}
 
 {{- if eq .Section "log" }}
-{{- $class = "post-entry log-entry" }}
+{{- $class = "log-entry" }}
 {{- end }}
 
 {{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
