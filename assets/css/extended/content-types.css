@@ -1,0 +1,154 @@
+/* Content Type Visual Indicators */
+
+/* Badge styling */
+.content-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+
+.content-type-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Specific badge colors */
+.log-badge {
+  background: linear-gradient(135deg, #ff6b6b, #ff8787);
+}
+
+.post-badge {
+  background: linear-gradient(135deg, #4ecdc4, #44a39f);
+}
+
+/* Log entry specific styling */
+.log-entry {
+  position: relative;
+  border-left: 4px solid #ff6b6b;
+  background: linear-gradient(to right, rgba(255, 107, 107, 0.05), transparent);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.log-entry::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #ff6b6b, #ff8787);
+  border-radius: 2px 0 0 2px;
+}
+
+/* Post entry styling */
+.post-entry {
+  position: relative;
+  border-left: 4px solid #4ecdc4;
+  background: linear-gradient(to right, rgba(78, 205, 196, 0.05), transparent);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Section-specific body classes */
+body.log .first-entry .entry-header h1::before {
+  content: "📝 ";
+  margin-right: 8px;
+}
+
+body.posts .first-entry .entry-header h1::before {
+  content: "📖 ";
+  margin-right: 8px;
+}
+
+/* Log section specific styling */
+.log .post-entry {
+  border-color: #ff6b6b;
+}
+
+/* Posts section specific styling */
+.posts .post-entry {
+  border-color: #4ecdc4;
+}
+
+/* Content badge with icons */
+.content-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.content-badge:hover::before {
+  left: 100%;
+}
+
+/* Badge icons */
+.badge-icon {
+  font-size: 0.8rem;
+}
+
+/* List page enhancements */
+.entry-header {
+  border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.posts .entry-header {
+  border-bottom-color: rgba(78, 205, 196, 0.2);
+}
+
+/* Entry count styling */
+.entry-count {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  font-weight: normal;
+  margin-left: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-type-badge,
+  .content-badge {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+  
+  .log-entry,
+  .post-entry {
+    padding: 15px;
+  }
+}

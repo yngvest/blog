@@ -1,0 +1,13 @@
+{{- $contentType := .Params.contentType | default .Section -}}
+
+{{- if eq $contentType "log" }}
+<span class="content-badge" style="background-color: #ff7f7f;">
+  <span class="badge-icon">📝</span>
+  <span class="badge-text">LOG</span>
+</span>
+{{- else if or (eq $contentType "posts") (eq $contentType "post") }}
+<span class="content-badge" style="background-color: #4ecdc4;">
+  <span class="badge-icon">📖</span>
+  <span class="badge-text">POST</span>
+</span>
+{{- end }}
