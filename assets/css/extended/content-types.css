@@ -1,13 +1,3 @@
-/* Log entry specific styling */
-.log-entry {
-  position: relative;
-  border-left: 4px solid #ff6b6b;
-  background: linear-gradient(to right, rgba(255, 107, 107, 0.05), transparent);
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
 /* Post entry styling */
 .post-entry {
   position: relative;
@@ -26,23 +16,23 @@
 }
 
 .first-entry {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 160px;
-    margin: var(--gap) 0 calc(var(--gap) * 2) 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 160px;
+  margin: var(--gap) 0 calc(var(--gap) * 2) 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+
   .content-type-badge,
   .content-badge {
     font-size: 0.65rem;
     padding: 3px 8px;
   }
-  
-  .log-entry,
+
   .post-entry {
     padding: 15px;
   }
