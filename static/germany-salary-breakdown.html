@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>German Salary Breakdown 2025</title>
+  <style>
+    :root {
+      --bg: #070c17;
+      --bg2: #0d1525;
+      --bg3: #111e32;
+      --card: #0f1a2e;
+      --border: rgba(255, 255, 255, 0.07);
+      --border2: rgba(255, 255, 255, 0.13);
+      --text: #c8d8f0;
+      --text-dim: #4e6080;
+      --text-br: #e8f0ff;
+      --red: #ff5c5c;
+      --red-d: #c0392b;
+      --blue: #4a9eff;
+      --blue-d: #1a6abf;
+      --purple: #b06bff;
+      --purple-d: #7c3aed;
+      --green: #3dffa0;
+      --green-d: #059669;
+      --gold: #f9c846;
+      --r: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    a {
+      color: #7ab4ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── HEADER ──────────────────────────────────────────────────── */
+    header {
+      padding: 36px 24px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 800;
+      color: var(--text-br);
+      letter-spacing: -0.5px;
+    }
+
+    header h1 .flag {
+      margin-right: 10px;
+    }
+
+    header h1 .yr {
+      background: linear-gradient(135deg, #4a9eff, #b06bff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    header p {
+      color: var(--text-dim);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    /* ── CONTROLS ────────────────────────────────────────────────── */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 24px 20px 0;
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    .ctl-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .ctl-group label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .salary-wrap {
+      display: flex;
+      align-items: center;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: var(--r);
+      overflow: hidden;
+      height: 44px;
+    }
+
+    .salary-wrap span {
+      padding: 0 12px;
+      color: var(--text-dim);
+      font-size: 18px;
+      font-weight: 300;
+      border-right: 1px solid var(--border);
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    #salary {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-br);
+      font-size: 18px;
+      font-weight: 700;
+      padding: 0 14px;
+      width: 150px;
+      height: 100%;
+    }
+
+    #salary::-webkit-outer-spin-button,
+    #salary::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .tog-grp {
+      display: flex;
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border2);
+    }
+
+    .tog {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      padding: 0 14px;
+      height: 44px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+
+    .tog.on {
+      background: var(--blue-d);
+      color: #fff;
+    }
+
+    select#state {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: var(--r);
+      color: var(--text-br);
+      padding: 0 14px;
+      height: 44px;
+      font-size: 13px;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }
+
+    select#state option {
+      background: var(--bg3);
+    }
+
+    /* ── MAIN LAYOUT ─────────────────────────────────────────────── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 16px 60px;
+    }
+
+    section {
+      margin-top: 36px;
+    }
+
+    section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-br);
+      margin-bottom: 5px;
+    }
+
+    section .sec-sub {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    /* ── FUNNEL ──────────────────────────────────────────────────── */
+    .funnel-wrap {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 24px 16px 20px;
+    }
+
+    .funnel-wrap svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    /* ── STAT CARDS ──────────────────────────────────────────────── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    @media(max-width:720px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:400px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .scard {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 18px 20px;
+      transition: border-color .2s;
+    }
+
+    .scard:hover {
+      border-color: var(--border2);
+    }
+
+    .scard .sc-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-dim);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .scard .sc-val {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .scard .sc-sub {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .scard.green .sc-val {
+      color: var(--green);
+    }
+
+    .scard.red .sc-val {
+      color: var(--red);
+    }
+
+    .scard.blue .sc-val {
+      color: var(--blue);
+    }
+
+    .scard.purple .sc-val {
+      color: var(--purple);
+    }
+
+    /* ── TWO-COL GRID ────────────────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media(max-width:760px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── BUDGET CHART ────────────────────────────────────────────── */
+    .budget-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 22px 20px;
+    }
+
+    .brow {
+      display: grid;
+      grid-template-columns: 165px 1fr 52px 90px;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brow:last-child {
+      border-bottom: none;
+    }
+
+    .brow .blabel {
+      font-size: 12px;
+      color: var(--text);
+      text-align: right;
+      padding-right: 8px;
+      line-height: 1.3;
+    }
+
+    .brow .bbar-bg {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      height: 10px;
+      overflow: hidden;
+    }
+
+    .brow .bbar {
+      height: 100%;
+      border-radius: 4px;
+      transition: width .4s ease;
+    }
+
+    .brow .bpct {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: right;
+    }
+
+    .brow .bamt {
+      font-size: 12px;
+      font-weight: 700;
+      text-align: right;
+      color: var(--text-br);
+    }
+
+    /* ── SOCIAL CARDS ────────────────────────────────────────────── */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .socard {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 18px;
+      transition: border-color .2s, transform .15s;
+    }
+
+    .socard:hover {
+      border-color: var(--border2);
+      transform: translateY(-2px);
+    }
+
+    .socard .so-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .socard .so-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-br);
+      margin-bottom: 4px;
+    }
+
+    .socard .so-rate {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .socard .so-split {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      border-top: 1px solid var(--border);
+      padding-top: 6px;
+    }
+
+    .socard .so-desc {
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .socard.red .so-rate {
+      color: var(--red);
+    }
+
+    .socard.blue .so-rate {
+      color: var(--blue);
+    }
+
+    .socard.purple .so-rate {
+      color: var(--purple);
+    }
+
+    .socard.green .so-rate {
+      color: var(--green);
+    }
+
+    .socard.gold .so-rate {
+      color: var(--gold);
+    }
+
+    /* ── DETAIL TABLE ────────────────────────────────────────────── */
+    .dtable-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+
+    .dtab-head {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background .15s;
+    }
+
+    .dtab-head:hover {
+      background: var(--bg3);
+    }
+
+    .dtab-head .arrow {
+      transition: transform .2s;
+      display: inline-block;
+      color: var(--text-dim);
+    }
+
+    .dtab-head.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    .dtab-body {
+      display: none;
+    }
+
+    .dtab-body.open {
+      display: block;
+    }
+
+    .dtab-body table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .dtab-body td,
+    .dtab-body th {
+      padding: 9px 18px;
+      font-size: 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .dtab-body th {
+      color: var(--text-dim);
+      font-weight: 600;
+      background: var(--bg3);
+    }
+
+    .dtab-body td:not(:first-child) {
+      text-align: right;
+    }
+
+    .dtab-body tr:last-child td {
+      border-bottom: none;
+    }
+
+    .dtab-body tr:last-child td {
+      font-weight: 700;
+      color: var(--text-br);
+    }
+
+    .dtab-body .tag {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .tag-er {
+      background: rgba(255, 92, 92, .15);
+      color: #ff8080;
+    }
+
+    .tag-ee {
+      background: rgba(74, 158, 255, .15);
+      color: #7ab4ff;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 24px 16px 40px;
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.8;
+      border-top: 1px solid var(--border);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    footer a {
+      color: var(--text-dim);
+    }
+
+    /* ── FLOW CHART (FUNNEL → DESTINATIONS) ─────────────────────── */
+    .flow-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 22px 16px 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .flow-wrap svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    /* ── COMBINED FLOW CHART ─────────────────────────────────────── */
+    .combined-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 22px 20px 14px;
+    }
+
+    .combined-legend {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      font-size: 12px;
+      color: var(--text-dim);
+      align-items: center;
+    }
+
+    .leg-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .leg-dot {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .crow-wrap {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .crow-wrap:last-child {
+      border-bottom: none;
+    }
+
+    .crow {
+      display: grid;
+      grid-template-columns: 155px 1fr 96px;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .crow-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-br);
+      text-align: right;
+      padding-right: 6px;
+      line-height: 1.3;
+    }
+
+    .crow-bar-outer {
+      height: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .crow-bar {
+      height: 100%;
+      display: flex;
+      border-radius: 5px;
+      overflow: hidden;
+      min-width: 3px;
+      transition: width .35s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .cseg {
+      height: 100%;
+      min-width: 2px;
+      position: relative;
+      cursor: default;
+      transition: flex .35s cubic-bezier(.4, 0, .2, 1), opacity .15s;
+    }
+
+    .cseg:hover {
+      opacity: .8;
+    }
+
+    .cseg::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(5, 10, 25, .95);
+      border: 1px solid var(--border2);
+      color: #e8f0ff;
+      padding: 5px 10px;
+      border-radius: 7px;
+      font-size: 11px;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 20;
+      opacity: 0;
+      transition: opacity .1s;
+    }
+
+    .cseg:hover::after {
+      opacity: 1;
+    }
+
+    .cseg-ee {
+      background: #2471a3;
+    }
+
+    .cseg-er {
+      background: #a93226;
+    }
+
+    .cseg-tax {
+      background: #b7950b;
+    }
+
+    .crow-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1px;
+    }
+
+    .crow-total {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-br);
+    }
+
+    .crow-total-mo {
+      font-size: 10px;
+      color: var(--text-dim);
+    }
+
+    .crow-breakdown {
+      grid-column: 2;
+      font-size: 10px;
+      color: var(--text-dim);
+      padding: 3px 0 6px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1><span class="flag">🇩🇪</span>German Salary Breakdown <span class="yr">2025</span></h1>
+    <p>All taxes · social contributions · employer overhead · where your money goes</p>
+  </header>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <div class="ctl-group">
+      <label>Gross annual salary</label>
+      <div class="salary-wrap">
+        <span>€</span>
+        <input type="number" id="salary" value="70000" min="5000" max="1000000" step="500">
+      </div>
+    </div>
+
+    <div class="ctl-group">
+      <label>Children</label>
+      <div class="tog-grp">
+        <button class="tog on" data-g="children" data-v="yes">Yes</button>
+        <button class="tog" data-g="children" data-v="no">No</button>
+      </div>
+    </div>
+
+    <div class="ctl-group">
+      <label>Church tax</label>
+      <div class="tog-grp">
+        <button class="tog on" data-g="church" data-v="no">No</button>
+        <button class="tog" data-g="church" data-v="yes">Yes</button>
+      </div>
+    </div>
+
+    <div class="ctl-group">
+      <label>Federal state</label>
+      <select id="state">
+        <option>Berlin</option>
+      </select>
+    </div>
+
+    <div class="ctl-group">
+      <label>Display</label>
+      <div class="tog-grp">
+        <button class="tog on" data-g="period" data-v="annual">Annual</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- FUNNEL -->
+    <section>
+      <div class="funnel-wrap">
+        <svg id="funnel-svg" viewBox="0 0 860 560" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+    </section>
+
+    <!-- FLOW CHART: FUNNEL → DESTINATIONS -->
+    <section>
+      <h2>From company cost to government programs</h2>
+      <p class="sec-sub">
+        The distribution is based on Federal Budget and Berlin's dual State/Municipal Budget for 2025.
+        The spending numbers are taken from open data sources and approximately grouped together in the spending
+        categories.
+        The numbers may be not accurate. Use with cautious.
+      </p>
+      <div class="flow-wrap">
+        <svg id="flow-svg" viewBox="0 0 1400 760" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+    </section>
+
+    <!-- STAT CARDS -->
+    <section>
+      <h2>Actual stats</h2>
+      <div class="stats">
+        <div class="scard green">
+          <div class="sc-label">Net take-home</div>
+          <div class="sc-val" id="sc-net-mo">€0</div>
+          <div class="sc-sub" id="sc-net-yr">€0 / year</div>
+        </div>
+        <div class="scard red">
+          <div class="sc-label">Company overhead</div>
+          <div class="sc-val" id="sc-overhead-pct">0%</div>
+          <div class="sc-sub" id="sc-overhead-amt">€0 above gross</div>
+        </div>
+        <div class="scard blue">
+          <div class="sc-label">Combined social contributions</div>
+          <div class="sc-val" id="sc-social-pct">0%</div>
+          <div class="sc-sub" id="sc-social-amt">€0</div>
+        </div>
+        <div class="scard purple">
+          <div class="sc-label">Effective total tax</div>
+          <div class="sc-val" id="sc-tax-pct">0%</div>
+          <div class="sc-sub" id="sc-tax-amt">€0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMBINED MONEY FLOW -->
+    <section>
+      <h2>Combined social contributions</h2>
+      <p class="sec-sub">
+        Combines your direct contributions, your employer's contributions (hidden cost of employing you),
+        and the federal tax subsidies that top up each program.
+      </p>
+      <div class="combined-wrap">
+        <div class="combined-legend">
+          <span class="leg-swatch"><span class="leg-dot" style="background:#2471a3"></span>You (employee)</span>
+          <span class="leg-swatch"><span class="leg-dot" style="background:#a93226"></span>Your employer</span>
+          <span class="leg-swatch"><span class="leg-dot" style="background:#b7950b"></span>Via income tax (federal
+            subsidy)</span>
+        </div>
+        <div id="combined-chart"></div>
+      </div>
+    </section>
+
+    <!-- WHERE TAX GOES + DETAIL BREAKDOWN (2-col) -->
+    <section>
+      <div class="two-col">
+
+        <!-- BUDGET CHART -->
+        <div>
+          <h2>Where your income tax goes - Federal budget</h2>
+          <p class="sec-sub">
+            Income tax splits ~42.5% federal · 42.5% states · 15% municipalities.
+            Bars show the federal budget (Bundeshaushalt 2026, €524.5B total).
+            "Your share" is your estimated federal portion.
+          </p>
+          <div class="budget-wrap" id="budget-chart"></div>
+        </div>
+
+        <!-- DETAIL TABLES -->
+        <div>
+          <h2>Contributions breakdown</h2>
+          <p class="sec-sub">All line items with rates and ceilings. Rates are 2025 statutory values.</p>
+          <div id="detail-tables" style="display:flex;flex-direction:column;gap:10px;"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOCIAL CARDS -->
+    <section>
+      <h2>Where your social contributions go</h2>
+      <p class="sec-sub">
+        Social insurance funds are separate from the tax budget. Each fund is earmarked for a specific purpose.
+      </p>
+      <div class="social-grid">
+
+        <div class="socard blue">
+          <div class="so-icon">🏦</div>
+          <div class="so-name">Pension Insurance</div>
+          <div class="so-rate" id="so-rv-rate">18.6%</div>
+          <div class="so-split" id="so-rv-split">EE: 9.3% · ER: 9.3% · ceiling: €96,600</div>
+          <div class="so-desc">
+            Funds current retiree pensions (pay-as-you-go). Also covers rehabilitation. Fed. gov. adds ~€119B/yr
+            subsidy.
+            Administered by <strong>Deutsche Rentenversicherung</strong>.
+          </div>
+        </div>
+
+        <div class="socard green">
+          <div class="so-icon">🏥</div>
+          <div class="so-name">Health Insurance</div>
+          <div class="so-rate" id="so-kv-rate">17.1%</div>
+          <div class="so-split" id="so-kv-split">EE: ~8.55% · ER: ~8.55% · ceiling: €66,150</div>
+          <div class="so-desc">
+            Doctor visits, hospitals, meds, preventive care, sick pay (from week 7), mental health.
+            Spouse &amp; children co-insured for free. Administered by your <strong>Krankenkasse</strong> (TK, AOK,
+            etc.).
+          </div>
+        </div>
+
+        <div class="socard red">
+          <div class="so-icon">💼</div>
+          <div class="so-name">Unemployment Insurance</div>
+          <div class="so-rate">2.6%</div>
+          <div class="so-split">EE: 1.3% · ER: 1.3% · ceiling: €96,600</div>
+          <div class="so-desc">
+            Pays Arbeitslosengeld I (60–67% of net) for up to 24 months. Funds job training &amp; placement.
+            Short-time work (Kurzarbeit) also covered. Run by <strong>Bundesagentur für Arbeit</strong>.
+          </div>
+        </div>
+
+        <div class="socard purple">
+          <div class="so-icon">🧓</div>
+          <div class="so-name">Long-term Care</div>
+          <div class="so-rate" id="so-pv-rate">3.6%</div>
+          <div class="so-split" id="so-pv-split">EE: 1.8% · ER: 1.8% · ceiling: €66,150</div>
+          <div class="so-desc">
+            Home care services, nursing home costs, care allowances.
+            Childless (age ≥23) pay +0.6% surcharge (employee only).
+            Administered by <strong>Pflegekasse</strong> (linked to your Krankenkasse).
+          </div>
+        </div>
+
+        <div class="socard gold">
+          <div class="so-icon">⛑️</div>
+          <div class="so-name">Accident Insurance</div>
+          <div class="so-rate">~1.3%</div>
+          <div class="so-split">EE: 0% · ER: 100% · no ceiling</div>
+          <div class="so-desc">
+            Workplace accidents &amp; occupational diseases. Covers treatment, rehab, and compensation.
+            Rate varies by industry risk class. Run by sector-specific
+            <strong>Berufsgenossenschaften</strong>.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Sources:
+    <a href="https://taxsummaries.pwc.com/germany/individual/taxes-on-personal-income" target="_blank">PwC Tax Summaries
+      2025</a> ·
+    <a href="https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/02/Inhalte/Kapitel-2-Analysen/2-3-sollbericht-2026.html"
+      target="_blank">BMF Sollbericht 2026</a> ·
+    <a href="https://www.tk.de/en/become-a-member/join-tk/contribution-rate-social-security-2037092" target="_blank">TK
+      Social Contribution Rates</a> ·
+    <a href="https://www.finanzfluss.de/bundeshaushalt-einnahmen-ausgaben/" target="_blank">Finanzfluss Budget
+      Overview</a>
+    <a href="https://www.berlin.de/sen/finanzen/haushalt/downloads/haushaltsplan-2024-25/band_07_2024_2025_epl_07.pdf?ts=1707389185"
+      target="_blank">Haushaltsplan von Berlin 2024-2025</a>
+    <a href="https://daten.berlin.de/datensaetze/doppelhaushalt-2024-2025-4-nachtrag-1614398" target="_blank">Berlin
+      Open Data Portal - 2024/2025 Supplementary Budget Sets</a>
+    <br>
+    Rates: statutory 2025. Health Zusatzbeitrag uses 2025 average of 2.5%. Church tax 9%.
+    Accident insurance uses ~1.3% industry average. Umlagen U1/U2 included in employer total.
+  </footer>
+
+  <script>
+    /* ════════════════════════════════════════════════════════════════
+       STATE
+    ════════════════════════════════════════════════════════════════ */
+    const state = {
+      gross: 70000,
+      children: true,
+      church: false,
+      state: 'Berlin',
+      period: 'annual',
+    };
+
+    /* ════════════════════════════════════════════════════════════════
+       SHARED BAND STYLES — single source of truth for deduction colors
+    ════════════════════════════════════════════════════════════════ */
+    const BAND_STYLES = {
+      er: { color: '#c0392b', bright: '#e74c3c', label: 'Employer Contributions' },
+      ee: { color: '#1a5276', bright: '#2980b9', label: 'Employee Social Insurance' },
+      tax: { color: '#4a235a', bright: '#8e44ad', label: 'Income Tax' },
+      rund: { color: '#b7770d', bright: '#d4a017', label: 'Broadcast Tax' },
+      net: { color: '#065f46', bright: '#10b981', label: 'Net Take-Home' },
+    };
+
+    /* ════════════════════════════════════════════════════════════════
+       SVG HELPERS
+    ════════════════════════════════════════════════════════════════ */
+    function svgMarker(id, color, opacity = '.85') {
+      return `<marker id="${id}" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">` +
+        `<path d="M0,0 L0,6 L8,3 z" fill="${color}" opacity="${opacity}"/></marker>`;
+    }
+
+    function svgGradient(id, bright, dark) {
+      return `<linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1">` +
+        `<stop offset="0%" stop-color="${bright}" stop-opacity=".95"/>` +
+        `<stop offset="100%" stop-color="${dark}" stop-opacity=".88"/>` +
+        `</linearGradient>`;
+    }
+
+    // Renders a pill badge (divider label + value). pW/pH are optional for smaller variants.
+    function svgPill(cx, y, text, sub, bgColor, borderColor, pW = 260, pH = 34) {
+      const rx = Math.round(pH / 2);
+      const fs2 = pW >= 240 ? 12 : 11;
+      return `<rect x="${cx - pW / 2}" y="${y - pH / 2}" width="${pW}" height="${pH}" rx="${rx}" fill="${bgColor}" stroke="${borderColor}" stroke-width="1.5"/>` +
+        `<text x="${cx}" y="${y - 3}" text-anchor="middle" fill="rgba(255,255,255,.6)" font-size="9" font-weight="600" letter-spacing=".06em">${text.toUpperCase()}</text>` +
+        `<text x="${cx}" y="${y + pH / 2 - 6}" text-anchor="middle" fill="white" font-size="${fs2}" font-weight="700">${sub}</text>`;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       CALCULATIONS (2025 German tax law)
+    ════════════════════════════════════════════════════════════════ */
+    const BBG_RV = 96600;   // pension + unemployment ceiling
+    const BBG_KV = 66150;   // health + care ceiling
+    const KV_BASE = 0.146;  // health base rate
+    const KV_ZB = 0.025;  // avg Zusatzbeitrag 2025
+
+    function calcIncomeTax(y) {
+      if (y <= 12096) return 0;
+      if (y <= 17444) { const z = (y - 12096) / 10000; return (979.18 * z + 1400) * z; }
+      if (y <= 68429) { const z = (y - 17444) / 10000; return (192.59 * z + 2397) * z + 966.53; }
+      if (y <= 277825) return 0.42 * y - 9972;
+      return 0.45 * y - 18307;
+    }
+
+    function calcSoli(tax) {
+      if (tax <= 18130) return 0;
+      const raw = tax * 0.055;
+      if (tax < 34000) return Math.min(raw, 0.119 * (tax - 18130));
+      return raw;
+    }
+
+    const RUND_FREQ = 4;      // quarterly
+    const RUND_AMT = 55;     // €55 per quarter (2025)
+    const RUND_ANN = RUND_AMT * RUND_FREQ; // €220/year
+
+    function compute(gross, hasChildren, churchMember, fedState) {
+      const kvTotal = KV_BASE + KV_ZB;
+      const churchRate = (fedState === 'Bayern' || fedState === 'Baden-Württemberg') ? 0.08 : 0.09;
+
+      const ee = {
+        pension: Math.min(gross, BBG_RV) * 0.093,
+        health: Math.min(gross, BBG_KV) * (kvTotal / 2),
+        unemploy: Math.min(gross, BBG_RV) * 0.013,
+        care: Math.min(gross, BBG_KV) * 0.018
+          + (hasChildren ? 0 : Math.min(gross, BBG_KV) * 0.006),
+      };
+      const er = {
+        pension: Math.min(gross, BBG_RV) * 0.093,
+        health: Math.min(gross, BBG_KV) * (kvTotal / 2),
+        unemploy: Math.min(gross, BBG_RV) * 0.013,
+        care: Math.min(gross, BBG_KV) * 0.018,
+        accident: gross * 0.013,
+        insolvency: gross * 0.0006,
+        u1: gross * 0.013,
+        u2: gross * 0.0024,
+      };
+
+      const eeTotal = Object.values(ee).reduce((a, b) => a + b, 0);
+      const erTotal = Object.values(er).reduce((a, b) => a + b, 0);
+
+      const taxable = Math.max(0, gross - eeTotal - 1230);
+      const incomeTax = calcIncomeTax(taxable);
+      const soli = calcSoli(incomeTax);
+      const church = churchMember ? incomeTax * churchRate : 0;
+      const totalTax = incomeTax + soli + church;
+
+      const net = gross - eeTotal - totalTax;
+      const netAfterRund = net - RUND_ANN;
+      const compCost = gross + erTotal;
+
+      return {
+        gross, net, netAfterRund, compCost, ee, er, eeTotal, erTotal, taxable,
+        incomeTax, soli, church, totalTax, rundfunk: RUND_ANN
+      };
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       HELPERS
+    ════════════════════════════════════════════════════════════════ */
+    function fmtE(n) {
+      return '€' + n.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+    function fmtN(n) {
+      return n.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+    function pct(n, of) { return (n / of * 100).toFixed(1) + '%'; }
+
+    /* ════════════════════════════════════════════════════════════════
+       FUNNEL SVG
+    ════════════════════════════════════════════════════════════════ */
+    function renderFunnel(d) {
+      const W = 860, H = 560, cx = 430, MAX_W = 680;
+      const { gross, net, netAfterRund, compCost, eeTotal, totalTax, erTotal, rundfunk } = d;
+
+      // Levels: amount remaining at each divider line
+      const amounts = [compCost, gross, gross - eeTotal, net, netAfterRund];
+      const widths = amounts.map(a => Math.max(a / compCost * MAX_W, 40));
+
+      // Y positions for divider lines (5 lines → 4 bands + effective net block)
+      const ys = [28, 155, 288, 415, 500, 548];
+
+      const bandKeys = ['er', 'ee', 'tax', 'rund', 'net'];
+      const bandAmts = [erTotal, eeTotal, totalTax, rundfunk, net];
+      const band = bandKeys.map((k, i) => ({
+        i, gid: `g${i}`,
+        label: k === 'rund' ? 'Broadcast Tax' : BAND_STYLES[k].label,
+        color: BAND_STYLES[k].color,
+        bright: BAND_STYLES[k].bright,
+        amt: bandAmts[i],
+        isNet: k === 'net',
+      }));
+
+      let s = '';
+
+      // ── defs ──────────────────────────────────────────────────────
+      s += `<defs>`;
+      band.forEach((b, i) => { s += svgGradient(`fg${i}`, b.bright, b.color); });
+      s += `<filter id="glow-net" x="-10%" y="-20%" width="120%" height="140%">
+    <feGaussianBlur stdDeviation="7" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>`;
+      s += `<filter id="sh" x="-5%" y="-5%" width="110%" height="110%">
+    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.5)"/>
+  </filter>`;
+      s += `</defs>`;
+
+      // ── background subtle grid ─────────────────────────────────────
+      s += `<rect width="${W}" height="${H}" fill="none"/>`;
+
+      // ── trapezoid bands ────────────────────────────────────────────
+      band.forEach((b, i) => {
+        const y0 = ys[i], y1 = ys[i + 1];
+        const w0 = widths[i], w1 = b.isNet ? widths[i] : widths[i + 1];
+        const x0l = cx - w0 / 2, x0r = cx + w0 / 2;
+        const x1l = cx - w1 / 2, x1r = cx + w1 / 2;
+        const pts = `${x0l},${y0} ${x0r},${y0} ${x1r},${y1} ${x1l},${y1}`;
+        const filter = b.isNet ? ' filter="url(#glow-net)"' : '';
+
+        // Main polygon
+        s += `<polygon points="${pts}" fill="url(#fg${i})" rx="6"${filter}/>`;
+
+        // Bottom rounded cap for net
+        if (b.isNet) {
+          const rk = Math.min((y1 - y0) / 2, 14);
+          s += `<rect x="${x1l}" y="${y1 - rk}" width="${w1}" height="${rk}"
+        rx="${rk}" fill="${b.color}" opacity=".9"/>`;
+        }
+
+        // Band label
+        const midY = (y0 + y1) / 2;
+        const bandH = y1 - y0;
+        const bpct = (b.amt / compCost * 100).toFixed(1);
+
+        if (bandH > 60) {
+          // Main title
+          s += `<text x="${cx}" y="${midY - (b.isNet ? 18 : 10)}" text-anchor="middle"
+        fill="white" font-size="14" font-weight="800" opacity=".97"
+        style="text-shadow:0 1px 4px rgba(0,0,0,.7)">${b.label}</text>`;
+          // Amount line
+          s += `<text x="${cx}" y="${midY + (b.isNet ? 4 : 10)}" text-anchor="middle"
+        fill="rgba(255,255,255,.88)" font-size="13">
+        ${fmtE(b.amt)} &nbsp;·&nbsp; ${bpct}% of company cost
+      </text>`;
+          // Monthly for effective take-home
+          if (b.isNet) {
+            s += `<text x="${cx}" y="${midY + 30}" text-anchor="middle"
+          fill="rgba(255,255,255,.7)" font-size="12">
+          ${fmtE(netAfterRund, 'monthly')} / month
+        </text>`;
+          }
+        }
+      });
+
+      // ── divider lines + pill badges ────────────────────────────────
+      const levelLabels = [
+        { text: `Your cost for company`, sub: `${fmtE(compCost)} / yr` },
+        { text: `Your gross salary`, sub: `${fmtE(gross)} / yr` },
+        { text: `After social ins.`, sub: `${fmtE(gross - eeTotal)} / yr` },
+        { text: `After income tax`, sub: `${fmtE(net)} / yr` },
+        { text: `Effective take-home`, sub: `${fmtE(netAfterRund)} / yr` },
+      ];
+
+      const pillColors = ['rgba(30,40,70,.9)', 'rgba(20,40,80,.9)', 'rgba(50,20,80,.9)', 'rgba(60,50,10,.9)', 'rgba(0,60,40,.9)'];
+      const pillBorders = ['rgba(231,76,60,.4)', 'rgba(41,128,185,.4)', 'rgba(139,92,246,.4)', 'rgba(212,160,23,.5)', 'rgba(16,185,129,.5)'];
+
+      levelLabels.forEach((ll, i) => {
+        const y = ys[i], w = widths[i];
+        s += `<line x1="${cx - w / 2}" y1="${y}" x2="${cx + w / 2}" y2="${y}" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>`;
+        s += svgPill(cx, y, ll.text, ll.sub, pillColors[i], pillBorders[i]);
+      });
+
+      // ── breakdown mini-bars on right side (employer deductions) ───
+      // Small legend showing sub-items of each band at the right edge
+      // We'll skip this to keep it clean; the detail tables cover it.
+
+      document.getElementById('funnel-svg').innerHTML = s;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       BUDGET CHART
+    ════════════════════════════════════════════════════════════════ */
+    const BUDGET_2026 = [
+      { label: 'Social & Labor', share: .370, color: '#c0392b', sub: 'Pensions, Bürgergeld, Kindergeld, GKV' },
+      { label: 'General Administration', share: .113, color: '#5d6d7e', sub: 'Bundespolizei, BKA, BMJ, Ministerien, BAMF' },
+      { label: 'Defense', share: .110, color: '#2c3e50', sub: 'Bundeswehr, Rüstung (regular budget, excl. Sondervermögen)' },
+      { label: 'Transportation', share: .100, color: '#2980b9', sub: 'Bundesschienen, Fernstraßen, BEV, Digitale Infra' },
+      { label: 'EU & International', share: .098, color: '#16a085', sub: 'EU-Haushaltsbeitrag, BMZ/GIZ, Auswärtiges Amt' },
+      { label: 'Debt Service', share: .070, color: '#d35400', sub: 'Interest on government bonds (Verzinsung)' },
+      { label: 'Education & Research', share: .040, color: '#8e44ad', sub: 'Forschung, Hochschulen, BAföG, Innovation' },
+      { label: 'Family, Housing & Env.', share: .040, color: '#f39c12', sub: 'Elterngeld, BMFSFJ, Umweltschutz/BMUV' },
+      { label: 'Health programs', share: .030, color: '#e91e63', sub: 'GKV-Bundeszuschuss, Gesundheitsprogramme' },
+      { label: 'Energy & Economy', share: .029, color: '#27ae60', sub: 'BMWK: Wirtschaftsförderung, Energie, KMU' },
+    ];
+
+    function renderBudget(d) {
+      const yourTax = d.incomeTax + d.soli;
+      const fedShare = yourTax * 0.425;  // ~42.5% of income tax goes federal
+
+      const maxShare = BUDGET_2026[0].share;
+      let html = '';
+      BUDGET_2026.forEach(row => {
+        const yourAmt = fedShare * row.share;
+        const barW = (row.share / maxShare * 100).toFixed(1);
+        html += `
+    <div class="brow">
+      <div class="blabel">${row.label}</div>
+      <div class="bbar-bg">
+        <div class="bbar" style="width:${barW}%;background:${row.color};"></div>
+      </div>
+      <div class="bpct">${(row.share * 100).toFixed(1)}%</div>
+      <div class="bamt" title="${row.sub}">€${fmtN(yourAmt)}</div>
+    </div>`;
+      });
+      document.getElementById('budget-chart').innerHTML = html;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       DETAIL TABLES
+    ════════════════════════════════════════════════════════════════ */
+    function renderDetails(d) {
+      const { gross, ee, er, incomeTax, soli, church, totalTax, eeTotal, erTotal, taxable } = d;
+      const p = state.period;
+
+      function row(label, rate, amt, tag = '') {
+        const tagHtml = tag ? `<span class="tag ${tag === 'er' ? 'tag-er' : 'tag-ee'}">${tag.toUpperCase()}</span> ` : '';
+        return `<tr>
+      <td>${tagHtml}${label}</td>
+      <td>${rate}</td>
+      <td>${fmtE(amt, p)}</td>
+      <td>${pct(amt, gross)}</td>
+    </tr>`;
+      }
+
+      function section(title, color, rows, total, totalLabel = 'Total') {
+        const id = 'dt-' + title.replace(/\s+/g, '');
+        return `
+    <div class="dtable-wrap">
+      <div class="dtab-head" onclick="toggleDt('${id}')" style="color:${color}">
+        ${title}
+        <span style="font-weight:400;color:var(--text-dim)">${fmtE(total, p)} · ${pct(total, gross)} of gross</span>
+        <span class="arrow">▼</span>
+      </div>
+      <div class="dtab-body" id="${id}">
+        <table>
+          <tr><th>Item</th><th>Rate</th><th>Amount (yr)</th><th>% of gross</th></tr>
+          ${rows}
+          <tr><td colspan="2">${totalLabel}</td><td>${fmtE(total, p)}</td><td>${pct(total, gross)}</td></tr>
+        </table>
+      </div>
+    </div>`;
+      }
+
+      // Employer table
+      const erRows =
+        row('Pension (RV)', '9.3%', er.pension, 'er') +
+        row('Health (KV base+ZB)', '~8.55%', er.health, 'er') +
+        row('Unemployment (AV)', '1.3%', er.unemploy, 'er') +
+        row('Long-term care (PV)', '1.8%', er.care, 'er') +
+        row('Accident ins. (UV)', '~1.3%', er.accident, 'er') +
+        row('Insolvency levy', '0.06%', er.insolvency, 'er') +
+        row('Umlage U1 (sick)', '1.3%', er.u1, 'er') +
+        row('Umlage U2 (maternity)', '0.24%', er.u2, 'er');
+
+      // Employee social table
+      const eeRows =
+        row('Pension (RV)', '9.3%', ee.pension, 'ee') +
+        row('Health (KV base+ZB)', '~8.55%', ee.health, 'ee') +
+        row('Unemployment (AV)', '1.3%', ee.unemploy, 'ee') +
+        row('Long-term care (PV)', state.children ? '1.8%' : '2.4%', ee.care, 'ee');
+
+      // Tax table
+      const taxRows =
+        `<tr><td colspan="4" style="color:var(--text-dim);font-size:11px;padding:6px 18px">
+      Taxable income: €${fmtN(taxable)} (gross − social EE − €1,230 allowance)
+    </td></tr>` +
+        row('Income tax (ESt)', 'progressive', incomeTax) +
+        row('Solidarity surcharge', '5.5% of ESt', soli) +
+        (state.church ? row('Church tax (Kirchensteuer)', '9%/8%', church) : '');
+
+      document.getElementById('detail-tables').innerHTML =
+        section('Employer contributions', '#e74c3c', erRows, erTotal, 'Total employer add-ons') +
+        section('Employee social insurance', '#2980b9', eeRows, eeTotal, 'Total social (EE)') +
+        section('Income taxes', '#8b5cf6', taxRows, totalTax, 'Total taxes');
+    }
+
+    function toggleDt(id) {
+      const body = document.getElementById(id);
+      const head = body.previousElementSibling;
+      body.classList.toggle('open');
+      head.classList.toggle('open');
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       STAT CARDS
+    ════════════════════════════════════════════════════════════════ */
+    function renderStats(d) {
+      const p = state.period;
+      const { gross, net, netAfterRund, compCost, eeTotal, erTotal, totalTax, rundfunk } = d;
+
+      document.getElementById('sc-net-mo').textContent = pct(netAfterRund, compCost);
+      document.getElementById('sc-net-yr').textContent = 'of your total value -  ' + fmtE(netAfterRund, 'annual') + ' / year';
+
+      const overheadPct = (erTotal / gross * 100).toFixed(1) + '%';
+      document.getElementById('sc-overhead-pct').textContent = overheadPct;
+      document.getElementById('sc-overhead-amt').textContent = fmtE(erTotal, p) + ' above gross';
+
+      document.getElementById('sc-social-pct').textContent = pct(eeTotal + erTotal, compCost);
+      document.getElementById('sc-social-amt').textContent = fmtE(eeTotal + erTotal, p) + ' from employeer and employee';
+
+      document.getElementById('sc-tax-pct').textContent = pct(compCost - netAfterRund, compCost);
+      document.getElementById('sc-tax-amt').textContent = fmtE(compCost - netAfterRund, p) + ' mandatory payments';
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       COMBINED FLOW CHART
+       Merges direct contributions + employer share + income tax subsidies
+    ════════════════════════════════════════════════════════════════ */
+    function renderCombined(d) {
+      const { ee, er, incomeTax, soli } = d;
+      const p = state.period;
+
+      const totalTax = incomeTax + soli;
+      const cats = [
+        {
+          label: 'Pension',
+          ee: ee.pension,
+          er: er.pension,
+          tax: TAX_DIST.pension * totalTax,
+          desc: 'RV contributions (you + employer) + federal RV top-up + Beamtenpensionen (Federal, Länder, Municipal)',
+        },
+        {
+          label: 'Healthcare',
+          ee: ee.health,
+          er: er.health,
+          tax: TAX_DIST.healthcare * totalTax,
+          desc: 'KV contributions (you + employer) + GKV subsidy + hospital investment + public health offices (Federal, Länder, Municipal)',
+        },
+        {
+          label: 'Unemployment\n& Safety Net',
+          ee: ee.unemploy,
+          er: er.unemploy,
+          tax: TAX_DIST.unemploy * totalTax,
+          desc: 'AV contributions (you + employer) + Bürgergeld + BA deficit cover + Sozialhilfe/Grundsicherung (Federal, Länder, Municipal)',
+        },
+        {
+          label: 'Long-term Care',
+          ee: ee.care,
+          er: er.care,
+          tax: TAX_DIST.ltcare * totalTax,
+          desc: 'PV contributions (you + employer) + tax subsidy to Pflegeversicherung (Federal, Länder)',
+        },
+        {
+          label: 'Child & Family',
+          ee: 0,
+          er: 0,
+          tax: TAX_DIST.childfam * totalTax,
+          desc: 'Kindergeld + Elterngeld + Jugendhilfe/Kinderschutz — funded entirely from income tax (Federal, Länder, Municipal)',
+        },
+        {
+          label: 'Workplace Accident',
+          ee: 0,
+          er: er.accident,
+          tax: TAX_DIST.workaccident * totalTax,
+          desc: 'Unfallversicherung — employer only, fully funded by employers via Berufsgenossenschaften',
+        },
+      ];
+
+      const maxTotal = Math.max(...cats.map(c => c.ee + c.er + c.tax));
+
+      let html = '';
+      cats.forEach(cat => {
+        const total = cat.ee + cat.er + cat.tax;
+        if (total < 0.01) return;
+        const barW = (total / maxTotal * 100).toFixed(2);
+        const tip = (label, amt) => `${label}: ${fmtE(amt, 'annual')}`;
+
+        html += `<div class="crow-wrap">
+      <div class="crow">
+        <div class="crow-label">${cat.label.replace('\n', '<br>')}</div>
+        <div class="crow-bar-outer">
+          <div class="crow-bar" style="width:${barW}%">
+            ${cat.ee > 0 ? `<div class="cseg cseg-ee"  style="flex:${cat.ee}"  data-tip="${tip('You', cat.ee)}"></div>` : ''}
+            ${cat.er > 0 ? `<div class="cseg cseg-er"  style="flex:${cat.er}"  data-tip="${tip('Employer', cat.er)}"></div>` : ''}
+            ${cat.tax > 0 ? `<div class="cseg cseg-tax" style="flex:${cat.tax}" data-tip="${tip('Tax subsidy', cat.tax)}"></div>` : ''}
+          </div>
+        </div>
+        <div class="crow-right">
+          <div class="crow-total">${fmtE(total, p)}</div>
+          <div class="crow-total-mo">${fmtE(total, 'annual') + '/yr'}</div>
+        </div>
+      </div>
+      <div class="crow-breakdown">
+        ${cat.ee > 0 ? `You: <strong>${fmtE(cat.ee, p)}</strong>` : ''}
+        ${cat.ee > 0 && (cat.er > 0 || cat.tax > 0) ? ' &nbsp;·&nbsp; ' : ''}
+        ${cat.er > 0 ? `Employer: <strong>${fmtE(cat.er, p)}</strong>` : ''}
+        ${cat.er > 0 && cat.tax > 0 ? ' &nbsp;·&nbsp; ' : ''}
+        ${cat.tax > 0 ? `Tax subsidy: <strong>${fmtE(cat.tax, p)}</strong>` : ''}
+        &nbsp;&nbsp;<span style="opacity:.6">${cat.desc}</span>
+      </div>
+    </div>`;
+      });
+
+      document.getElementById('combined-chart').innerHTML = html;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       FLOW CHART: FUNNEL → GOVERNMENT PROGRAM DESTINATIONS
+     ════════════════════════════════════════════════════════════════ */
+    const SPENDING_CATS = [
+      { id: 'pension', label: 'Pensions', sub: 'RV, Beamtenpensionen', color: '#c0392b', from: [], to: [] },
+      { id: 'healthcare', label: 'Healthcare', sub: 'GKV, hospitals, public health', color: '#27ae60', from: [], to: [] },
+      { id: 'unemploy', label: 'Unemployment\n& Safety Net', sub: 'Bürgergeld, BA, Sozialhilfe', color: '#f39c12', from: [], to: [] },
+      { id: 'ltcare', label: 'Long-term Care', sub: 'Pflegeversicherung', color: '#8e44ad', from: [], to: [] },
+      { id: 'workaccident', label: 'Workplace Accident', sub: 'Berufsgenossenschaften (UV)', color: '#d4a017', from: [], to: [] },
+      { id: 'childfam', label: 'Child & Family', sub: 'Kindergeld, Elterngeld, Jugendhilfe', color: '#e91e63', from: [], to: [] },
+      { id: 'edu', label: 'Education', sub: 'Schools, universities, Kita, research', color: '#2980b9', from: [], to: [] },
+      { id: 'defense', label: 'Defense', sub: 'Bundeswehr, NATO, procurement', color: '#5d6d7e', from: [], to: [] },
+      { id: 'infra', label: 'Infrastructure', sub: 'Roads, rail, ÖPNV, waterways', color: '#d35400', from: [], to: [] },
+      { id: 'police', label: 'Police & Justice', sub: 'Landespolizei, courts, BKA', color: '#16a085', from: [], to: [] },
+      { id: 'admin', label: 'Public Admin', sub: 'Ministries, municipalities', color: '#7f8c8d', from: [], to: [] },
+      { id: 'debt', label: 'Debt Service', sub: 'Federal, Länder, municipal debt', color: '#e67e22', from: [], to: [] },
+      { id: 'culture', label: 'Culture & Media', sub: 'Theaters, museums, sports', color: '#9b59b6', from: [], to: [] },
+      { id: 'env', label: 'Environment', sub: 'Agriculture, climate, waste', color: '#1abc9c', from: [], to: [] },
+      { id: 'housing', label: 'Housing', sub: 'Social housing, Wohngeld', color: '#e74c3c', from: [], to: [] },
+      { id: 'refugee', label: 'Refugee & Asylum', sub: 'BAMF, integration, AsylbLG', color: '#34495e', from: [], to: [] },
+      { id: 'eu', label: 'EU Contribution', sub: "Germany's net EU budget share", color: '#2c3e50', from: [], to: [] },
+      { id: 'forecon', label: 'Foreign Affairs\n& Development', sub: 'Embassies, BMZ, GIZ', color: '#95a5a6', from: [], to: [] },
+      { id: 'other', label: 'Other', sub: 'Digitalization, space, misc.', color: '#bdc3c7', from: [], to: [] },
+    ];
+
+    // Tax distribution fractions from income_tax_spending.csv (pct_of_income_tax, summed per category).
+    // "Economic Affairs & Energy" has no dedicated category and is folded into 'other'.
+    /*
+    const TAX_DIST = {
+      pension:      0.108 + 0.031,                               // pension top-up + Beamtenpensionen
+      healthcare:   0.017 + 0.015 + 0.009 + 0.004,             // GKV subsidy + hospitals + Gesundheitsämter + BMG
+      unemploy:     0.024 + 0.005 + 0.015,                      // Bürgergeld + BA deficit + Sozialhilfe
+      ltcare:       0.007,                                        // Pflegevorsorgefonds tax subsidy
+      workaccident: 0,                                            // UV funded by employer contributions only
+      childfam:     0.007 + 0.005 + 0.021,                      // Kindergeld + Elterngeld + Jugendhilfe
+      edu:          0.107 + 0.009 + 0.048 + 0.025 + 0.009 + 0.031 + 0.005, // schools + buildings + universities + Kita + Kita co-fund + research + BAföG
+      defense:      0.067,                                        // Bundeswehr, NATO
+      infra:        0.020 + 0.013 + 0.004 + 0.026 + 0.021 + 0.010, // federal roads + rail + waterways + state roads + local roads + ÖPNV
+      police:       0.048 + 0.013 + 0.005 + 0.003,             // Landespolizei + courts + BKA/BfV + Ordnungsamt
+      debt:         0.025 + 0.011 + 0.006 + 0.005,             // federal + Länder + municipal interest + redemption
+      admin:        0.038 + 0.021 + 0.005,                      // Länder + municipal + federal admin
+      culture:      0.013 + 0.008 + 0.002,                      // Länder culture + municipal culture + BKM
+      env:          0.010 + 0.008 + 0.004,                      // agriculture + climate/env + municipal waste
+      housing:      0.009 + 0.005 + 0.004,                      // social housing + Wohngeld + municipal housing
+      refugee:      0.022,                                        // BAMF, integration, AsylbLG
+      eu:           0.021,                                        // Germany's net EU contribution
+      forecon:      0.008 + 0.004,                               // BMZ/GIZ + embassies/AA
+      other:        0.005 + 0.003 + 0.001 + 0.005 + 0.015 + 0.015, // digitalization + space + consumer + NEC + economic subsidies + Energiewende
+    };
+    */
+
+    // Federal weight: 42.5% (Bundesanteil Lohnsteuer)                                                                                                            
+    // State+Municipal weight: 57.5% (Länder+Gemeindeanteil, Berlin 2025 as proxy)                                                                                
+    // Sources: Bundeshaushalt 04-2026 (Finanzfluss), Berliner Haushaltsplan 2025 
+    const TAX_DIST = {
+      pension: 0.115 + 0.004,          // GRV-Zuschuss (27%fed×0.425) + Beamtenpensionen Bund (1%fed×0.425)                                                  
+      healthcare: 0.013 + 0.023,          // GKV-Bundeszuschuss (3%fed×0.425) + Berlin Krankenhäuser+Gesundheitsämter (4%BLN×0.575)                             
+      unemploy: 0.038 + 0.058,          // SGB II+III Bundesleistungen (9%fed×0.425) + Berlin Sozialhilfe+Bezirke (10%BLN×0.575)                              
+      ltcare: 0.017,                  // Berlin Pflege/Nursing (2.9%BLN×0.575)                                                                              
+      workaccident: 0,                      // UV funded by employer contributions only                                                                           
+      childfam: 0.013 + 0.020,          // BMFSFJ Elterngeld+Familie (3%fed×0.425) + Berlin Jugendhilfe+Epl10 (3.5%BLN×0.575)                                 
+      edu: 0.004 + 0.132,          // Bund Bildungswesen/BAföG (1%fed×0.425) + Berlin Schulen+Uni+Kita+Bezirke (23%BLN×0.575)                            
+      defense: 0.047,                  // Bundeswehr, NATO (11%fed×0.425)                                                                                    
+      infra: 0.038 + 0.040,          // Bundesschienen+Fernstraßen+BEV (9%fed×0.425) + Berlin Verkehr+Straßen+ÖPNV+Bezirke (7%BLN×0.575)                   
+      police: 0.014 + 0.058,          // BKA+Bundespolizei+BMJ (3.25%fed×0.425) + Berlin Polizei+Justiz+Ordnungsamt (10%BLN×0.575)                          
+      debt: 0.030 + 0.035,          // Bundesschuld Verzinsung (7%fed×0.425) + Berlin Schuldendienst (6%BLN×0.575)                                        
+      admin: 0.015 + 0.101,          // Bund Finanzverwaltung (3.6%fed×0.425) + Berlin Verwaltung+Bezirke+Senat (17.5%BLN×0.575)                           
+      culture: 0.025,                  // Berlin Kultur+Bezirkskultur (4.4%BLN×0.575)                                                                        
+      env: 0.003 + 0.012,          // BMUV/Landwirtschaft (0.6%fed×0.425) + Berlin Umwelt+Klima (2.1%BLN×0.575)                                          
+      housing: 0.002 + 0.012,          // Wohngeld Bund (0.5%fed×0.425) + Berlin sozialer Wohnungsbau (2%BLN×0.575)                                          
+      refugee: 0.011 + 0.014,          // BAMF+Integration Bund (2.5%fed×0.425) + Berlin Integration/AsylbLG (2.4%BLN×0.575)                                 
+      eu: 0.026,                  // EU-Eigenmittel/Nettobeitrag (6%fed×0.425)                                                                          
+      forecon: 0.017,                  // BMZ/GIZ+AA/Ausland (4%fed×0.425)                                                                                   
+      other: 0.034 + 0.030,          // Bund Forschung+Digital+Wirtschaft+Energie (8%fed×0.425) + Berlin Wirtschaft+Sonstiges (5.2%BLN×0.575)              
+    };
+
+    function renderFlowChart(d) {
+      const W = 1400, H = 760;
+      const FUNNEL_END_X = 370;
+      const DEST_START_X = 700;
+      const { gross, net, netAfterRund, compCost, ee, er, eeTotal, erTotal, incomeTax, soli, rundfunk } = d;
+
+      // ── Source nodes (right edge of funnel bands) ──────────────────
+
+      const sources = [
+        {
+          id: 'er', label: 'Employer\nContributions', shortLabel: 'Employer',
+          x: FUNNEL_END_X, y: 42, y2: 238,
+          items: [
+            { label: 'Pension (RV)', amt: er.pension, dest: 'pension' },
+            { label: 'Health (KV)', amt: er.health, dest: 'healthcare' },
+            { label: 'Unemployment (AV)', amt: er.unemploy, dest: 'unemploy' },
+            { label: 'Long-term Care (PV)', amt: er.care, dest: 'ltcare' },
+            { label: 'Accident (UV)', amt: er.accident, dest: 'workaccident' },
+            { label: 'Umlagen + Insolvency', amt: er.insolvency + er.u1 + er.u2, dest: 'unemploy' },
+          ]
+        },
+        {
+          id: 'ee', label: 'Employee\nSocial Insurance', shortLabel: 'Employee',
+          x: FUNNEL_END_X, y: 238, y2: 425,
+          items: [
+            { label: 'Pension (RV)', amt: ee.pension, dest: 'pension' },
+            { label: 'Health (KV)', amt: ee.health, dest: 'healthcare' },
+            { label: 'Unemployment (AV)', amt: ee.unemploy, dest: 'unemploy' },
+            { label: 'Long-term Care (PV)', amt: ee.care, dest: 'ltcare' },
+          ]
+        },
+        {
+          id: 'tax', label: 'Income Tax', shortLabel: 'Income Tax',
+          x: FUNNEL_END_X, y: 425, y2: 610,
+          items: [
+            { label: 'Income Tax', amt: incomeTax + soli, dest: null }, // pool — splits to all
+          ]
+        },
+        {
+          id: 'rund', label: 'Rundfunkbeitrag', shortLabel: 'Rundfunkbeitrag',
+          x: FUNNEL_END_X, y: 610, y2: 744,
+          items: [
+            { label: 'Rundfunkbeitrag', amt: rundfunk, dest: 'culture' }, // funds public broadcasting
+          ]
+        },
+      ];
+
+      // ── Destination nodes (right side) — derived locally, never mutates SPENDING_CATS ──
+      const destYStart = 30;
+      const destYEnd = H - 30;
+      const destRowH = (destYEnd - destYStart) / SPENDING_CATS.length;
+      const taxPool = incomeTax + soli;
+
+      const destNodes = SPENDING_CATS.map((cat, i) => ({
+        ...cat,
+        x: DEST_START_X + 60,
+        y: destYStart + i * destRowH + destRowH / 2,
+        taxAmt: (TAX_DIST[cat.id] || 0) * taxPool,
+        erAmt: 0,
+        eeAmt: 0,
+      }));
+
+      sources.forEach(src => {
+        src.items.forEach(item => {
+          if (!item.dest) return;
+          const node = destNodes.find(n => n.id === item.dest);
+          if (!node) return;
+          if (src.id === 'er') node.erAmt += item.amt;
+          if (src.id === 'ee') node.eeAmt += item.amt;
+        });
+      });
+
+      // ── Build SVG ───────────────────────────────────────────────────
+      let s = '';
+
+      // Defs: arrowhead markers + gradients
+      s += `<defs>
+    ${svgMarker('ah-er', BAND_STYLES.er.color)}
+    ${svgMarker('ah-ee', BAND_STYLES.ee.color)}
+    ${svgMarker('ah-tax', BAND_STYLES.tax.color)}
+    ${svgMarker('ah-rund', BAND_STYLES.rund.color)}
+    ${svgMarker('ah-gray', '#555', '.7')}
+    <filter id="flow-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>`;
+
+      // ── Background panels ──────────────────────────────────────────
+      // Left panel label
+      s += `<rect x="0" y="0" width="${FUNNEL_END_X + 30}" height="${H}" fill="rgba(255,255,255,0.015)" rx="0"/>`;
+
+      // ── Section headers ─────────────────────────────────────────────
+      s += `<text x="${FUNNEL_END_X / 2}" y="22" text-anchor="middle"
+    fill="rgba(200,216,240,0.5)" font-size="11" font-weight="700" letter-spacing=".08em">
+    COMPANY COST BREAKDOWN
+  </text>`;
+      s += `<line x1="10" y1="32" x2="${FUNNEL_END_X + 20}" y2="32" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>`;
+
+      // Right panel header
+      s += `<text x="${DEST_START_X + 300}" y="22" text-anchor="middle"
+    fill="rgba(200,216,240,0.5)" font-size="11" font-weight="700" letter-spacing=".08em">
+    GOVERNMENT SPENDING CATEGORIES
+  </text>`;
+      s += `<line x1="${DEST_START_X}" y1="32" x2="${W - 10}" y2="32" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>`;
+
+      // ── Mini Funnel (simplified, on left side) ─────────────────────
+      const mW = FUNNEL_END_X;
+      const mH = H - 60;
+      const mCX = mW / 2;
+      const mY0 = 42;
+
+      // Trapezoid shape
+      const widths3 = [
+        Math.max(mW * 0.85, 40),  // [0] company cost
+        Math.max((gross / compCost) * mW * 0.85, 40),  // [1] gross
+        Math.max(((gross - eeTotal) / compCost) * mW * 0.85, 40),  // [2] after social insurance
+        Math.max((net / compCost) * mW * 0.85, 40),  // [3] net (bottom of yellow block, flat)
+        Math.max((netAfterRund / compCost) * mW * 0.85, 40),  // [4] effective take-home (after Rundfunk)
+      ];
+      const mYs = [mY0, mY0 + mH * 0.20, mY0 + mH * 0.37, mY0 + mH * 0.52, mY0 + mH * 0.50, mY0 + mH * 0.75];
+
+      const bandDefs = [
+        { key: 'er', label: 'Employer\nContributions', y0: mYs[0], y1: mYs[1], amt: erTotal },
+        { key: 'ee', label: 'Employee\nSocial Ins.', y0: mYs[1], y1: mYs[2], amt: eeTotal },
+        { key: 'tax', label: 'Income Tax', y0: mYs[2], y1: mYs[3], amt: incomeTax + soli },
+        { key: 'rund', label: 'Broadcast Tax', y0: mYs[4], y1: mYs[5], amt: rundfunk },
+      ].map(b => ({ ...b, color: BAND_STYLES[b.key].color, bright: BAND_STYLES[b.key].bright }));
+
+      // Funnel gradients for mini-funnel polygons
+      s += `<defs>${bandDefs.map((b, i) => svgGradient(`flow-fg${i}`, b.bright, b.color)).join('')}</defs>`;
+
+      bandDefs.forEach((b, i) => {
+        const w0 = widths3[i], w1 = b.isNet ? widths3[i] : widths3[i + 1];
+        const x0l = mCX - w0 / 2, x0r = mCX + w0 / 2;
+        const x1l = mCX - w1 / 2, x1r = mCX + w1 / 2;
+        const pts = `${x0l},${b.y0} ${x0r},${b.y0} ${x1r},${b.y1} ${x1l},${b.y1}`;
+        const filter = b.isNet ? ' filter="url(#flow-glow)"' : '';
+        s += `<polygon points="${pts}" fill="url(#flow-fg${i})"${filter}/>`;
+
+        const midY = (b.y0 + b.y1) / 2;
+        const h = b.y1 - b.y0;
+        if (h > 55) {
+          s += `<text x="${mCX}" y="${midY - 6}" text-anchor="middle" fill="white"
+        font-size="12" font-weight="800" opacity=".97"
+        style="text-shadow:0 1px 4px rgba(0,0,0,.7)">${b.label.replace('\n', '<br>')}</text>`;
+          s += `<text x="${mCX}" y="${midY + (b.isNet ? 14 : 10)}" text-anchor="middle"
+        fill="rgba(255,255,255,.8)" font-size="11">
+        ${fmtE(b.amt)} · ${(b.amt / compCost * 100).toFixed(1)}%
+      </text>`;
+        }
+      });
+
+      // Divider lines + labels on funnel
+      // Each entry carries its own width (w) since indices no longer match widths3 1-to-1.
+      const divLabels = [
+        { y: mYs[0], w: widths3[0], text: 'Company Cost', sub: fmtE(compCost) },
+        { y: mYs[1], w: widths3[1], text: 'Gross Salary', sub: fmtE(gross) },
+        { y: mYs[2], w: widths3[2], text: 'After Social Ins.', sub: fmtE(gross - eeTotal) },
+        { y: mYs[3], w: widths3[3], text: 'Net Take-Home', sub: fmtE(net) },
+        { y: mYs[5], w: widths3[5], text: 'Effective Take-Home', sub: fmtE(netAfterRund) },
+      ];
+
+      const pillColors2 = ['rgba(30,40,70,.9)', 'rgba(20,40,80,.9)', 'rgba(50,20,80,.9)', 'rgba(80,60,0,.9)', 'rgba(0,60,40,.9)'];
+      const pillBorders2 = ['rgba(231,76,60,.4)', 'rgba(41,128,185,.4)', 'rgba(139,92,246,.4)', 'rgba(244,208,63,.5)', 'rgba(16,185,129,.5)'];
+      divLabels.forEach((dl, i) => {
+        s += `<line x1="${mCX - dl.w / 2}" y1="${dl.y}" x2="${mCX + dl.w / 2}" y2="${dl.y}" stroke="rgba(255,255,255,.3)" stroke-width="1.2"/>`;
+        s += svgPill(mCX, dl.y, dl.text, dl.sub, pillColors2[i], pillBorders2[i], 200, 30);
+      });
+
+      // ── Draw flow arrows ────────────────────────────────────────────
+      // Source positions: right edge of each funnel band, at band vertical center.
+      // Use mYs (the same y-positions used to draw the funnel polygons above).
+      const srcPositions = [
+        { id: 'er', x: mCX + (widths3[0] + widths3[1]) / 4, y: (mYs[0] + mYs[1]) / 2, color: BAND_STYLES.er.color, marker: 'ah-er' },
+        { id: 'ee', x: mCX + (widths3[1] + widths3[2]) / 4, y: (mYs[1] + mYs[2]) / 2, color: BAND_STYLES.ee.color, marker: 'ah-ee' },
+        { id: 'tax', x: mCX + (widths3[2] + widths3[3]) / 4, y: (mYs[2] + mYs[3]) / 2, color: BAND_STYLES.tax.color, marker: 'ah-tax' },
+        { id: 'rund', x: mCX + (widths3[4] + widths3[5]) / 4, y: (mYs[4] + mYs[5]) / 2, color: BAND_STYLES.rund.color, marker: 'ah-rund' },
+      ];
+
+      // Arrow paths: cubic bezier from source to destination
+      function arrowPath(x1, y1, x2, y2, curvature) {
+        const midX = x1 + (x2 - x1) * curvature;
+        return `M${x1},${y1} C${midX},${y1} ${midX},${y2} ${x2},${y2}`;
+      }
+
+      // Draw arrows from each source to its destination categories
+      srcPositions.forEach(src => {
+        if (src.id === 'tax') {
+          // Income tax: pool splits to ALL categories proportionally
+          destNodes.forEach((cat, i) => {
+            if (cat.taxAmt <= 0) return;
+            const sx = src.x + 10;
+            const sy = src.y + (i % 2 === 0 ? -2 : 2);
+            const dx = cat.x - 5;
+            const dy = cat.y;
+            const curve = 0.35 + Math.abs(i % 3) * 0.05;
+            s += `<path d="${arrowPath(sx, sy, dx, dy, curve)}"
+          stroke="${src.color}" stroke-width="${Math.max(1, cat.taxAmt / taxPool * 12)}"
+          fill="none" opacity=".5" marker-end="url(#${src.marker})"/>`;
+          });
+        } else if (src.id === 'rund') {
+          // Rundfunkbeitrag: goes to Culture & Media
+          const srcData = sources.find(s => s.id === 'rund');
+          srcData.items.forEach((item, idx) => {
+            if (!item.dest || item.amt <= 0) return;
+            const cat = destNodes.find(n => n.id === item.dest);
+            if (!cat) return;
+            const sx = src.x + 10;
+            const sy = src.y;
+            const dx = cat.x - 5;
+            const dy = cat.y;
+            s += `<path d="${arrowPath(sx, sy, dx, dy, 0.3)}"
+          stroke="${src.color}" stroke-width="3"
+          fill="none" opacity=".7" marker-end="url(#ah-rund)"/>`;
+          });
+        } else {
+          // Employer/Employee: direct arrows to specific categories
+          const srcData = sources.find(s => s.id === src.id);
+          if (!srcData) return;
+          const totalSrc = srcData.items.reduce((a, it) => a + it.amt, 0);
+          let prevDest = null;
+          srcData.items.forEach((item, idx) => {
+            if (!item.dest || item.amt <= 0) return;
+            const cat = destNodes.find(n => n.id === item.dest);
+            if (!cat) return;
+            const sx = src.x + 10;
+            const sy = src.y + (idx % 2 === 0 ? -3 : 3);
+            const dx = cat.x - 5;
+            const dy = cat.y + (item.dest === prevDest ? (idx % 2 === 0 ? -8 : 8) : 0);
+            prevDest = item.dest;
+            const curve = 0.3 + idx * 0.04;
+            const strokeW = Math.max(0.8, item.amt / totalSrc * 8);
+            s += `<path d="${arrowPath(sx, sy, dx, dy, curve)}"
+          stroke="${src.color}" stroke-width="${strokeW}"
+          fill="none" opacity=".6" marker-end="url(#${src.marker})"/>`;
+          });
+        }
+      });
+
+      // ── Draw destination boxes ──────────────────────────────────────
+      const boxW = 280;
+      const boxH = 34;
+
+      destNodes.forEach((cat, i) => {
+        const bx = cat.x;
+        const by = cat.y - boxH / 2;
+
+        // Alternating row tint
+        if (i % 2 === 0) {
+          s += `<rect x="${bx - 12}" y="${by}" width="${boxW + 24}" height="${boxH}"
+        fill="rgba(255,255,255,0.02)" rx="4"/>`;
+        }
+
+        // Color dot
+        s += `<rect x="${bx}" y="${by + 8}" width="6" height="18" rx="3" fill="${cat.color}" opacity=".9"/>`;
+
+        // Category name
+        s += `<text x="${bx + 14}" y="${by + 17}" fill="rgba(232,240,255,0.9)"
+      font-size="12" font-weight="700">${cat.label.replace('\n', ' ')}</text>`;
+
+        // Sub-label
+        s += `<text x="${bx + 14}" y="${by + 29}" fill="rgba(200,216,240,0.35)"
+      font-size="9">${cat.sub}</text>`;
+
+        // Amount breakdown
+        const total = cat.erAmt + cat.eeAmt + cat.taxAmt;
+        if (total > 0) {
+          const rx = bx + boxW - 5;
+          const tip = `ER: ${fmtE(cat.erAmt)} · EE: ${fmtE(cat.eeAmt)} · Tax: ${fmtE(cat.taxAmt)}`;
+          s += `<text x="${rx}" y="${by + 18}" text-anchor="end" fill="rgba(232,240,255,0.8)"
+        font-size="12" font-weight="800" title="${tip}">${fmtE(total)}</text>`;
+
+          // Mini bar showing ER/EE/Tax proportions
+          const barW = 80;
+          const barX = rx - barW;
+          const barY = by + 24;
+          if (total > 0) {
+            const erW = cat.erAmt / total * barW;
+            const eeW = cat.eeAmt / total * barW;
+            const taxW = cat.taxAmt / total * barW;
+            s += `<rect x="${barX}" y="${barY}" width="${barW}" height="4" fill="rgba(255,255,255,0.08)" rx="2"/>`;
+            let cx2 = barX;
+            if (erW > 1) { s += `<rect x="${cx2}" y="${barY}" width="${erW}"  height="4" fill="${BAND_STYLES.er.color}"  rx="2"/>`; cx2 += erW; }
+            if (eeW > 1) { s += `<rect x="${cx2}" y="${barY}" width="${eeW}"  height="4" fill="${BAND_STYLES.ee.color}"  rx="2"/>`; cx2 += eeW; }
+            if (taxW > 1) { s += `<rect x="${cx2}" y="${barY}" width="${taxW}" height="4" fill="${BAND_STYLES.tax.color}" rx="2"/>`; }
+          }
+        }
+      });
+
+      // ── Legend ─────────────────────────────────────────────────────
+      const legY = H - 24;
+      s += `<line x1="10" y1="${legY - 10}" x2="${W - 10}" y2="${legY - 10}" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>`;
+      s += `<rect x="10" y="${legY}" width="10" height="10" rx="2" fill="${BAND_STYLES.er.color}"/>`;
+      s += `<text x="24" y="${legY + 9}" fill="rgba(200,216,240,0.5)" font-size="10">Employer contributions</text>`;
+      s += `<rect x="180" y="${legY}" width="10" height="10" rx="2" fill="${BAND_STYLES.ee.color}"/>`;
+      s += `<text x="194" y="${legY + 9}" fill="rgba(200,216,240,0.5)" font-size="10">Employee contributions</text>`;
+      s += `<rect x="350" y="${legY}" width="10" height="10" rx="2" fill="${BAND_STYLES.tax.color}"/>`;
+      s += `<text x="364" y="${legY + 9}" fill="rgba(200,216,240,0.5)" font-size="10">Via income tax (federal/state/municipal budget)</text>`;
+      s += `<text x="${W - 10}" y="${legY + 9}" text-anchor="end" fill="rgba(100,130,180,0.4)" font-size="9">
+    Income tax split: ~42.5% Federal · ~42.5% Länder · ~15% Municipalities
+  </text>`;
+
+      document.getElementById('flow-svg').innerHTML = s;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       MASTER UPDATE
+     ════════════════════════════════════════════════════════════════ */
+    function update() {
+      const d = compute(state.gross, state.children, state.church, state.state);
+      renderFunnel(d);
+      renderFlowChart(d);
+      renderStats(d);
+      renderCombined(d);
+      renderBudget(d);
+      renderDetails(d);
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       EVENTS
+    ════════════════════════════════════════════════════════════════ */
+    document.getElementById('salary').addEventListener('input', e => {
+      const v = parseFloat(e.target.value);
+      if (v > 0) { state.gross = v; update(); }
+    });
+
+    document.getElementById('state').addEventListener('change', e => {
+      state.state = e.target.value;
+      update();
+    });
+
+    document.querySelectorAll('.tog').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const g = btn.dataset.g, v = btn.dataset.v;
+        document.querySelectorAll(`.tog[data-g="${g}"]`).forEach(b => b.classList.remove('on'));
+        btn.classList.add('on');
+        if (g === 'children') state.children = v === 'yes';
+        if (g === 'church') state.church = v === 'yes';
+        if (g === 'period') state.period = v;
+        update();
+      });
+    });
+
+    /* ════════════════════════════════════════════════════════════════
+       INIT
+    ════════════════════════════════════════════════════════════════ */
+    update();
+  </script>
+</body>
+
+</html>
