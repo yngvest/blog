@@ -11,7 +11,7 @@ A significat portion of these mandatory payments consists of contributions to va
 
 Knowing that is one thing, but I wanted to visualize it to better understand where the money goes. To that end, I've built a simple salary breakdown page:
 
-[German salary breakdown](/blog/germany-salary-breakdown/)
+[German salary breakdown](/blog/germany-salary-breakdown)
 
 Without going into details here are the main points that are easy to overlook:
 - Your total compensation is higher than your gross salary.
